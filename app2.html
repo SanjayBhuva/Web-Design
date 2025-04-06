@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="./app2.css" rel="stylesheet">
+</head>
+<body>
+    <div id="logo">
+        <i class="fa-solid fa-school"></i>
+        <h1>Cambridge Campus</h1>
+        <h3>London</h3>
+    </div>
+    
+    <form id="loginForm">
+        Username: <input type="text" id="username" placeholder="Enter username">
+        Password: <input type="password" id="password" placeholder="Enter password">
+        <button type="button" id="submitBtn">Submit</button>
+        <a href="#">Forgot Password?</a>
+        <a href="#">Forgot Login ID?</a>
+    </form>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("loginForm");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const submitBtn = document.getElementById("submitBtn");
+    
+    // Password Toggle Icon
+    const togglePassword = document.createElement("i");
+    togglePassword.classList.add("fa", "fa-eye-slash", "toggle-password");
+    passwordInput.parentNode.appendChild(togglePassword);
+
+    togglePassword.addEventListener("click", function () {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.classList.replace("fa-eye-slash", "fa-eye");
+        } else {
+            passwordInput.type = "password";
+            togglePassword.classList.replace("fa-eye", "fa-eye-slash");
+        }
+    });
+
+    submitBtn.addEventListener("click", function () {
+        let username = usernameInput.value.trim();
+        let password = passwordInput.value.trim();
+        let isValid = true;
+
+        // Username Validation
+        if (username.length < 5) {
+            shakeInput(usernameInput);
+            alert("Username must be at least 5 characters long.");
+            isValid = false;
+        }
+
+        // Password Validation
+        if (!isValidPassword(password)) {
+            shakeInput(passwordInput);
+            alert("Password must be at least 8 characters long, include a number and a special character.");
+            isValid = false;
+        }
+
+        if (isValid) {
+            window.location.href = "page2.html";
+        }
+    });
+
+    function shakeInput(input) {
+        input.classList.add("shake");
+        setTimeout(() => input.classList.remove("shake"), 300);
+    }
+
+    function isValidPassword(password) {
+        const strongPasswordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return strongPasswordRegex.test(password);
+    }
+});
+
+    </script>
+</body>
+</html>
