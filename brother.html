@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Annnaa Mood Booster 😂</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Comic Sans MS', cursive;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  overflow: hidden;
+  animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+header {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  color: #fff;
+  text-align: center;
+  padding: 24px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.content {
+  padding: 18px;
+  text-align: center;
+}
+
+.anime-img {
+  width: 100%;
+  border-radius: 20px;
+  margin: 12px 0;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.anime-img:hover {
+  transform: scale(1.04) rotate(1deg);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.ai-status {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.joke-box {
+  background: linear-gradient(135deg, #fff3b0, #ffe066);
+  border-radius: 18px;
+  padding: 18px;
+  margin: 14px 0;
+  font-size: 1.1rem;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wiggle 0.4s ease;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
+  100% { transform: rotate(0); }
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 0.75rem;
+  color: #444;
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+  <header>
+    <h1>Annnaa 😂🔥</h1>
+    <p>Certified Handsome + Unlimited Comedy License 🤣</p>
+  </header>
+
+  <div class="content">
+    <img src="./1000032317.jpg" alt="Annnaa Legend 😎" class="anime-img">
+
+    <div class="ai-status" id="status">
+      🤖 AI trying not to laugh… failing 😂
+    </div>
+
+    <div class="joke-box" id="joke">
+      This smile alone can cancel bad moods 🤣🔥
+    </div>
+
+    <button onclick="makeLaugh()">Make Me Laugh Again 😂</button>
+  </div>
+
+  <footer>
+    Made with ❤️, respect & too much laughter by your brother 😎
+  </footer>
+</div>
+
+<script>
+const jokes = [
+  "Annnaa smiling like this should come with a warning label 😂🔥",
+  "Bro didn’t pose… nature adjusted itself automatically 😎🤣",
+  "Scientists say this pic causes random laughing in public 😂",
+  "Mountains behind him be like: respect boss 😌🔥",
+  "This is not a photo, this is confidence in HD 🤣",
+  "If laughter was money, Annnaa would own the bank 😂💸"
+];
+
+function makeLaugh() {
+  const status = document.getElementById("status");
+  const jokeBox = document.getElementById("joke");
+
+  status.innerText = "🤖 Loading next-level comedy 😂...";
+  jokeBox.innerText = "Brace yourself 🤣🤣";
+
+  setTimeout(() => {
+    jokeBox.innerText = jokes[Math.floor(Math.random() * jokes.length)];
+    status.innerText = "✅ Mission successful: Laugh achieved 😂🔥";
+  }, 600);
+}
+</script>
+</body>
+</html>
